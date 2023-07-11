@@ -122,8 +122,8 @@ for(let i = 0; i < maxwidth; i+=100) {
             grenzenindex
         );
         canvas.label(
-            map(grenzen2[grenzenindex].grenze, 0, maxwidth, 0, width),
-            map(grenzen2[grenzenindex].prozent, 0, maxheight, height, 0),
+            map(grenzen2[grenzenindex].grenze, 0, maxwidth, 0, width) + 12,
+            map(grenzen2[grenzenindex].prozent, 0, maxheight, height, 0) - 20,
             `Grenzsteuersatz bei ${i}€`,
             `Prozent: ${grenzen2[grenzenindex].prozent}%`,
             grenzenindex
@@ -149,8 +149,8 @@ for(let i = 0; i < maxwidth; i+=100) {
             index
         );
         canvas.label(
-            map(i, 0, maxwidth, 0, width),
-            map(stavg, 0, maxheight, height-5, 0),
+            map(i, 0, maxwidth, 0, width) + 12,
+            map(stavg, 0, maxheight, height-5, 0) - 20,
             `Durchschnittssteuersatz bei ${i}€`,
             `Prozent: ${`${100*stavg}`.slice(0, 4)}%`,
             index
