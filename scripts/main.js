@@ -103,6 +103,8 @@ let index = 0;
 let stavg;
 let grenzenindex = 0;
 for(let i = 0; i < maxwidth; i+=100) {
+
+    // Wenn i einen neuen Bereich erreicht, an dem sich der Prozentsatz ändert, dann erhöhe den "grenzindex" um 1 und zeichne einen Kreis und ein Label
     if(i/grenzen2[grenzenindex].obergrenze > 1) {
         ++grenzenindex;
         canvas.ellipse(
@@ -121,6 +123,8 @@ for(let i = 0; i < maxwidth; i+=100) {
             grenzenindex
         );
     }
+
+    // Wenn der "konstant" key true ist, dann summiere nur den prozentsatz auf, falls nicht, dann bilde eine Gerade dazwischen und summiere die Werte dieser auf
     sum += grenzen2[grenzenindex].konstant?
         grenzen2[grenzenindex].prozent
         : map(i, grenzen2[grenzenindex].grenze, grenzen2[grenzenindex].obergrenze, grenzen2[grenzenindex].prozent, grenzen2[grenzenindex+1].prozent);
@@ -128,6 +132,7 @@ for(let i = 0; i < maxwidth; i+=100) {
     ++index;
     stavg = sum / index;
 
+    // Zeige den durchschnittlichen Prozentsatz and und die labels dazu
     if(i % 9000 == 0) {
         canvas.ellipse(
             map(i, 0, maxwidth, 0, width),
