@@ -1,4 +1,4 @@
-const maxwidth = 500000;
+const maxwidth = 280000;
 const maxheight = .6;
 
 const grenzen2 = {
@@ -29,6 +29,12 @@ const grenzen2 = {
     4: {
         "grenze": 277825,
         "obergrenze": maxwidth,
+        "prozent": .45,
+        "konstant": true
+    },
+    5: {
+        "grenze": 277826,
+        "obergrenze": 9999999999999999999999,
         "prozent": .45,
         "konstant": true
     }
@@ -156,4 +162,19 @@ for(let i = 0; i < maxwidth; i+=100) {
             1
         );
     }
+}
+function calcTax(income) {
+    let sumTax = 0;
+    let gindex = 0;
+    let loopindex = 0;
+    for(let j = 0; j < income; j+=10) {
+        if(j/grenzen2[gindex].obergrenze > 1) ++gindex;
+        sumTax += grenzen2[gindex].konstant?
+            grenzen2[gindex].prozent
+            : map(j, grenzen2[gindex].grenze, grenzen2[gindex].obergrenze, grenzen2[gindex].prozent, grenzen2[gindex+1].prozent);
+
+        ++loopindex;
+    }
+    let num = 100 * sumTax / loopindex;
+    return parseFloat(num.toFixed(2));
 }
