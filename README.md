@@ -1,5 +1,4 @@
 # Income Tax Curve
----
 
 ### Description
 No one likes it, everyone still has to pay it. 
