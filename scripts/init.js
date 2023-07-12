@@ -1,5 +1,5 @@
-let width = 800;
-let height = 600;
+let width = 1400;
+let height = 760;
 
 var elem = document.getElementById("myChart");
 var canvas = new DivDraw(elem, width, height);

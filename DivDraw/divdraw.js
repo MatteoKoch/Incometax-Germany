@@ -72,7 +72,7 @@ class DivDraw {
         kreis.style.width = `${w}px`;
         kreis.style.height = `${h}px`;
         kreis.style.background = col;
-        kreis.style.zIndex = '9';
+        kreis.style.zIndex = hoverid?'10':'9';
         kreis.style.borderRadius = '50%';
         if(hoverid) {
             kreis.style.cursor = 'pointer';
@@ -295,7 +295,7 @@ class DivDraw {
                             yn = Math.round(graphheight-(graphic.data[i+1]*graphheight/maxelem));
                             //drawing the bars
                             this.rect(x, y, breite*0.85, graphheight-y, graphic.color, `${graphic.label}${k}${i}`);
-                            this.label(x+(breite/2), y-20, graphic.labels[i], graphic.label+': '+graphic.data[i], graphic.dataLabels!=null?graphic.dataLabels[i]:graphic.labels[i],`${graphic.label}${k}${i}`, graphic.color);
+                            this.label(x+(breite/2), y-20, graphic.labels[i], graphic.label+': '+graphic.data[i], `${graphic.label}${k}${i}`, graphic.color);
                             if(i % teiler == 0) {
                                 //labels for the x-axis
                                 this.text(x, graphheight+3, graphic.labels[i], 'fit-content', 12, '#555');
@@ -330,7 +330,7 @@ class DivDraw {
                             }
                             //drawing the points
                             this.ellipse(x, y, graphic.stroke, graphic.stroke, graphic.color, `${k}${i}`);
-                            this.label(x+12, y-20, graphic.labels[i], graphic.label+': '+graphic.data[i], graphic.dataLabels!=null?graphic.dataLabels[i]:graphic.labels[i],`${k}${i}`, graphic.color);
+                            this.label(x+12, y-20, graphic.labels[i], graphic.label+': '+graphic.data[i],`${k}${i}`, graphic.color);
                             if(i % teiler == 0) {
                                 //labels for the x-axis
                                 this.text(x, graphheight+3, graphic.labels[i], 'fit-content', 12, '#555');

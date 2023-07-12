@@ -1,4 +1,4 @@
-const maxwidth = 280000;
+const maxwidth = 300000;
 const maxheight = .6;
 
 const grenzen2 = {
@@ -116,8 +116,8 @@ for(let i = 0; i < maxwidth; i+=100) {
         canvas.ellipse(
             map(grenzen2[grenzenindex].grenze, 0, maxwidth, 0, width),
             map(grenzen2[grenzenindex].prozent, 0, maxheight, height, 0),
-            10,
-            10,
+            16,
+            16,
             "rgba(0,0,0,.5)",
             grenzenindex
         );
@@ -143,8 +143,8 @@ for(let i = 0; i < maxwidth; i+=100) {
         canvas.ellipse(
             map(i, 0, maxwidth, 0, width),
             map(stavg, 0, maxheight, height-5, 0),
-            10,
-            10,
+            16,
+            16,
             "rgba(0,0,0,.5)",
             index
         );
@@ -159,7 +159,7 @@ for(let i = 0; i < maxwidth; i+=100) {
         canvas.ellipse(
             map(i, 0, maxwidth, 0, width),
             map(stavg, 0, maxheight, height-5, 0),
-            1
+            2
         );
     }
 }
